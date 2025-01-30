@@ -1,22 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
-  font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   --light-blue: #58699d;
   --dark-grey: #2a324b;
   --light-grey: #e1e5ee;
   --white: #fff;
 }
 
-* {
-  background-color: var(--light-grey);
-}
-
-nav {
-  margin-top: 10rem;
-}
-
-ul {
+.ul {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -24,23 +16,17 @@ ul {
   font-weight: 800;
 }
 
-li.active {
+.li.active {
   background-color: var(--white);
   color: #2a324b;
 }
 
-li {
+.li {
   background-color: var(--dark-grey);
   color: var(--white);
   padding: 1.7rem;
   padding-left: 3rem;
   padding-right: 3rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
-}
-
-p {
-  background-color: var(--white);
   margin-left: 3rem;
   margin-right: 3rem;
 }

@@ -1,34 +1,35 @@
 import navStyle from "./nav.module.css";
 import { useState } from "react";
 import { resources } from "../../../ressurser";
-import { Content } from "./content";
+import { Content } from "./Content";
+
 export const Nav = () => {
-  const [content, setContent] = useState(null);
+  const [content, setContent] = useState(
+    resources.length > 0 ? resources[0] : null
+  );
+
   const handleOnClick = (resource) => {
     setContent(resource);
-    console.log(resource);
   };
+
   return (
     <nav>
-      <ul>
-        {resources.map((resource, index) => {
-          return (
-            <li
-              className={
-                content && content.category === resource.category
-                  ? `${navStyle.active}`
-                  : ""
-              }
-              onClick={() => handleOnClick(resource)}
-              key={index}
-            >
-              {resource.category}
-            </li>
-          );
-        })}
+      <ul className={navStyle.ul}>
+        {resources.map((resource, index) => (
+          <li
+            className={`${
+              content && content.category === resource.category
+                ? navStyle.active
+                : ""
+            } ${navStyle.li}`}
+            onClick={() => handleOnClick(resource)}
+            key={index}
+          >
+            {resource.category}
+          </li>
+        ))}
       </ul>
       {content && <Content resource={content} />}
     </nav>
   );
 };
-

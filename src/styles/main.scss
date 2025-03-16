@@ -1,0 +1,230 @@
+@use "sass:color";
+
+// Definerer fargevariabler
+$primary-color: #2a324b;
+$secondary-color: #58699d;
+$light-color: #e1e5ee;
+$white: #fff;
+$font-family: "Montserrat", sans-serif;
+$max-width: 750px; // Setter en maksimal bredde for innholdet.
+
+// Tilbakestiller margin, padding og box-sizing for alle elementer.
+* {
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Grunnleggende stil for root-elementet
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Stil for body
+body {
+  font-family: $font-family;
+  background-color: $light-color;
+  color: $primary-color;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+}
+
+// Stil for header-seksjonen
+header {
+  background-color: $primary-color;
+  color: $white;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+// Stil for hovedinnholdet
+main {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Stil for footer-seksjonen
+footer {
+  background-color: $primary-color;
+  color: $white;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: absolute;
+}
+
+// Stil for overskrifter
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+// Stil for lenker
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+
+  &:hover {
+    color: #535bf2;
+  }
+}
+
+// Stil for knapper
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: #646cff;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto;
+  }
+}
+
+// Navigasjonsmeny
+nav {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+
+  ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      margin: 0.25rem;
+
+      a {
+        display: block;
+        background-color: $primary-color;
+        color: $white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 1rem 1.5rem;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $white;
+          color: $primary-color;
+        }
+      }
+
+      &.active a {
+        background-color: $white;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Stil for ressurssiden
+.resources {
+  background-color: $white;
+  padding: 2rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+
+  .resources-content {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    color: $secondary-color;
+  }
+}
+
+// Stil for listen over ressurser
+.resources-list {
+  list-style-type: none;
+
+  li {
+    margin-bottom: 0.8rem;
+
+    a {
+      color: $secondary-color;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Stiler for lys modus
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+// Media Queries for responsiv design
+@media (min-width: 768px) {
+  main {
+    max-width: $max-width;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      width: 100%;
+      margin: 0.25rem 0;
+
+      a {
+        text-align: center;
+      }
+    }
+  }
+}
